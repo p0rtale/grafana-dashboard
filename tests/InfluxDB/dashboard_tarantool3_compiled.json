@@ -22149,6 +22149,162 @@
          "id": 171,
          "panels": [
             {
+               "datasource": "$influxdb",
+               "description": "Whether the safe mode is enabled or disabled on storage instance.\n\nPanel minimal requirements: CRUD 1.7.2.\n",
+               "fieldConfig": {
+                  "defaults": {
+                     "color": {
+                        "mode": "palette-classic"
+                     },
+                     "custom": {
+                        "axisLabel": "",
+                        "axisPlacement": "auto",
+                        "barAlignment": 0,
+                        "drawStyle": "line",
+                        "fillOpacity": 0,
+                        "gradientMode": "none",
+                        "hideFrom": {
+                           "legend": false,
+                           "tooltip": false,
+                           "viz": false
+                        },
+                        "lineInterpolation": "linear",
+                        "lineWidth": 1,
+                        "pointSize": 5,
+                        "scaleDistribution": {
+                           "type": "linear"
+                        },
+                        "showPoints": "never",
+                        "spanNulls": false,
+                        "stacking": {
+                           "group": "A",
+                           "mode": "none"
+                        },
+                        "thresholdsStyle": {
+                           "mode": "off"
+                        }
+                     },
+                     "mappings": [
+                        {
+                           "options": {
+                              "1": {
+                                 "color": "yellow",
+                                 "index": 0,
+                                 "text": "enabled"
+                              }
+                           },
+                           "type": "value"
+                        },
+                        {
+                           "options": {
+                              "0": {
+                                 "color": "green",
+                                 "index": 0,
+                                 "text": "disabled"
+                              }
+                           },
+                           "type": "value"
+                        },
+                        {
+                           "options": {
+                              "from": 0.001,
+                              "result": {
+                                 "index": 0,
+                                 "text": "-"
+                              },
+                              "to": 0.999
+                           },
+                           "type": "range"
+                        }
+                     ],
+                     "max": 1,
+                     "min": 0,
+                     "thresholds": {
+                        "mode": "absolute",
+                        "steps": [ ]
+                     }
+                  },
+                  "overrides": [ ]
+               },
+               "gridPos": {
+                  "h": 8,
+                  "w": 12,
+                  "x": 0,
+                  "y": 432
+               },
+               "id": 172,
+               "options": {
+                  "legend": {
+                     "calcs": [
+                        "last"
+                     ],
+                     "displayMode": "table",
+                     "placement": "right"
+                  },
+                  "tooltip": {
+                     "mode": "multi"
+                  }
+               },
+               "targets": [
+                  {
+                     "alias": "$tag_label_pairs_alias",
+                     "groupBy": [
+                        {
+                           "params": [
+                              "$__interval"
+                           ],
+                           "type": "time"
+                        },
+                        {
+                           "params": [
+                              "label_pairs_alias"
+                           ],
+                           "type": "tag"
+                        },
+                        {
+                           "params": [
+                              "none"
+                           ],
+                           "type": "fill"
+                        }
+                     ],
+                     "measurement": "$measurement",
+                     "policy": "$policy",
+                     "refId": "A",
+                     "resultFormat": "time_series",
+                     "select": [
+                        [
+                           {
+                              "params": [
+                                 "value"
+                              ],
+                              "type": "field"
+                           },
+                           {
+                              "params": [ ],
+                              "type": "mean"
+                           }
+                        ]
+                     ],
+                     "tags": [
+                        {
+                           "key": "metric_name",
+                           "operator": "=",
+                           "value": "tnt_crud_storage_safe_mode_enabled"
+                        },
+                        {
+                           "condition": "AND",
+                           "key": "label_pairs_alias",
+                           "operator": "=~",
+                           "value": "/^$alias$/"
+                        }
+                     ]
+                  }
+               ],
+               "title": "Safe mode status",
+               "type": "timeseries"
+            },
+            {
                "aliasColors": { },
                "bars": false,
                "dashLength": 10,
@@ -22159,10 +22315,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 12,
-                  "x": 0,
+                  "x": 12,
                   "y": 432
                },
-               "id": 172,
+               "id": 173,
                "legend": {
                   "alignAsTable": true,
                   "avg": false,
@@ -22299,10 +22455,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 432
+                  "x": 0,
+                  "y": 440
                },
-               "id": 173,
+               "id": 174,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -22457,10 +22613,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 432
+                  "x": 6,
+                  "y": 440
                },
-               "id": 174,
+               "id": 175,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -22615,10 +22771,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 12,
                   "y": 440
                },
-               "id": 175,
+               "id": 176,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -22773,10 +22929,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 18,
                   "y": 440
                },
-               "id": 176,
+               "id": 177,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -22931,10 +23087,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 8,
-                  "x": 12,
-                  "y": 440
+                  "x": 0,
+                  "y": 448
                },
-               "id": 177,
+               "id": 178,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -23035,10 +23191,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 8,
-                  "x": 0,
+                  "x": 8,
                   "y": 448
                },
-               "id": 178,
+               "id": 179,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -23139,10 +23295,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 8,
-                  "x": 8,
+                  "x": 16,
                   "y": 448
                },
-               "id": 179,
+               "id": 180,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -23291,10 +23447,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 16,
-                  "y": 448
+                  "x": 0,
+                  "y": 456
                },
-               "id": 180,
+               "id": 181,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -23449,10 +23605,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 456
                },
-               "id": 181,
+               "id": 182,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -23607,10 +23763,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 456
                },
-               "id": 182,
+               "id": 183,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -23765,10 +23921,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 456
                },
-               "id": 183,
+               "id": 184,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -23923,10 +24079,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 456
+                  "x": 0,
+                  "y": 464
                },
-               "id": 184,
+               "id": 185,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -24081,10 +24237,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 464
                },
-               "id": 185,
+               "id": 186,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -24239,10 +24395,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 464
                },
-               "id": 186,
+               "id": 187,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -24397,10 +24553,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 464
                },
-               "id": 187,
+               "id": 188,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -24555,10 +24711,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 464
+                  "x": 0,
+                  "y": 472
                },
-               "id": 188,
+               "id": 189,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -24713,10 +24869,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 472
                },
-               "id": 189,
+               "id": 190,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -24871,10 +25027,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 472
                },
-               "id": 190,
+               "id": 191,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -25029,10 +25185,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 472
                },
-               "id": 191,
+               "id": 192,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -25187,10 +25343,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 472
+                  "x": 0,
+                  "y": 480
                },
-               "id": 192,
+               "id": 193,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -25345,10 +25501,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 480
                },
-               "id": 193,
+               "id": 194,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -25503,10 +25659,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 480
                },
-               "id": 194,
+               "id": 195,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -25661,10 +25817,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 480
                },
-               "id": 195,
+               "id": 196,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -25819,10 +25975,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 480
+                  "x": 0,
+                  "y": 488
                },
-               "id": 196,
+               "id": 197,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -25977,10 +26133,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 488
                },
-               "id": 197,
+               "id": 198,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -26135,10 +26291,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 488
                },
-               "id": 198,
+               "id": 199,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -26293,10 +26449,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 488
                },
-               "id": 199,
+               "id": 200,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -26451,10 +26607,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 488
+                  "x": 0,
+                  "y": 496
                },
-               "id": 200,
+               "id": 201,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -26609,10 +26765,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 496
                },
-               "id": 201,
+               "id": 202,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -26767,10 +26923,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 496
                },
-               "id": 202,
+               "id": 203,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -26925,10 +27081,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 496
                },
-               "id": 203,
+               "id": 204,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -27083,10 +27239,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 496
+                  "x": 0,
+                  "y": 504
                },
-               "id": 204,
+               "id": 205,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -27241,10 +27397,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 504
                },
-               "id": 205,
+               "id": 206,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -27399,10 +27555,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 504
                },
-               "id": 206,
+               "id": 207,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -27557,10 +27713,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 504
                },
-               "id": 207,
+               "id": 208,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -27715,10 +27871,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 504
+                  "x": 0,
+                  "y": 512
                },
-               "id": 208,
+               "id": 209,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -27873,10 +28029,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 512
                },
-               "id": 209,
+               "id": 210,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -28031,10 +28187,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 512
                },
-               "id": 210,
+               "id": 211,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -28189,10 +28345,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 512
                },
-               "id": 211,
+               "id": 212,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -28347,10 +28503,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 512
+                  "x": 0,
+                  "y": 520
                },
-               "id": 212,
+               "id": 213,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -28505,10 +28661,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 520
                },
-               "id": 213,
+               "id": 214,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -28663,10 +28819,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 520
                },
-               "id": 214,
+               "id": 215,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -28821,10 +28977,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 520
                },
-               "id": 215,
+               "id": 216,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -28979,10 +29135,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 520
+                  "x": 0,
+                  "y": 528
                },
-               "id": 216,
+               "id": 217,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -29137,10 +29293,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 528
                },
-               "id": 217,
+               "id": 218,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -29295,10 +29451,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 528
                },
-               "id": 218,
+               "id": 219,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -29453,10 +29609,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 528
                },
-               "id": 219,
+               "id": 220,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -29611,10 +29767,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 528
+                  "x": 0,
+                  "y": 536
                },
-               "id": 220,
+               "id": 221,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -29769,10 +29925,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 536
                },
-               "id": 221,
+               "id": 222,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -29927,10 +30083,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 536
                },
-               "id": 222,
+               "id": 223,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -30085,10 +30241,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 536
                },
-               "id": 223,
+               "id": 224,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -30243,10 +30399,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 536
+                  "x": 0,
+                  "y": 544
                },
-               "id": 224,
+               "id": 225,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -30401,10 +30557,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 544
                },
-               "id": 225,
+               "id": 226,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -30559,10 +30715,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 544
                },
-               "id": 226,
+               "id": 227,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -30717,10 +30873,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 544
                },
-               "id": 227,
+               "id": 228,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -30875,10 +31031,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 544
+                  "x": 0,
+                  "y": 552
                },
-               "id": 228,
+               "id": 229,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -31033,10 +31189,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 6,
                   "y": 552
                },
-               "id": 229,
+               "id": 230,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -31191,10 +31347,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 12,
                   "y": 552
                },
-               "id": 230,
+               "id": 231,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -31349,10 +31505,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
+                  "x": 18,
                   "y": 552
                },
-               "id": 231,
+               "id": 232,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -31514,7 +31670,7 @@
             "x": 0,
             "y": 560
          },
-         "id": 232,
+         "id": 233,
          "panels": [
             {
                "aliasColors": { },
@@ -31530,7 +31686,7 @@
                   "x": 0,
                   "y": 561
                },
-               "id": 233,
+               "id": 234,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -31676,7 +31832,7 @@
                   "x": 12,
                   "y": 561
                },
-               "id": 234,
+               "id": 235,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -31823,7 +31979,7 @@
                   "x": 0,
                   "y": 569
                },
-               "id": 235,
+               "id": 236,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -31965,7 +32121,7 @@
                   "x": 12,
                   "y": 569
                },
-               "id": 236,
+               "id": 237,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
