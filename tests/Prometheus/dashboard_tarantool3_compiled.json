@@ -14732,15 +14732,102 @@
                "dashLength": 10,
                "dashes": false,
                "datasource": "$prometheus",
+               "description": "How long ago the route cache was last cleared on router instance.\n\nPanel minimal requirements: CRUD 1.7.3.\n",
+               "fill": 0,
+               "gridPos": {
+                  "h": 8,
+                  "w": 12,
+                  "x": 0,
+                  "y": 440
+               },
+               "id": 179,
+               "legend": {
+                  "alignAsTable": true,
+                  "avg": false,
+                  "current": true,
+                  "max": false,
+                  "min": false,
+                  "rightSide": false,
+                  "show": true,
+                  "sideWidth": null,
+                  "sort": "current",
+                  "sortDesc": true,
+                  "total": false,
+                  "values": true
+               },
+               "lines": true,
+               "linewidth": 1,
+               "links": [ ],
+               "nullPointMode": "null",
+               "percentage": false,
+               "pointradius": 5,
+               "points": false,
+               "renderer": "flot",
+               "repeat": null,
+               "seriesOverrides": [ ],
+               "spaceLength": 10,
+               "stack": false,
+               "steppedLine": false,
+               "targets": [
+                  {
+                     "expr": "(\n  tnt_crud_router_cache_clear_ts{alias=~\"$alias\",job=~\"$job\"}\n  and\n  tnt_crud_router_cache_clear_ts{alias=~\"$alias\",job=~\"$job\"} > 0\n) * 1000\n",
+                     "format": "time_series",
+                     "intervalFactor": 2,
+                     "legendFormat": "{{alias}}",
+                     "refId": "A"
+                  }
+               ],
+               "thresholds": [ ],
+               "timeFrom": null,
+               "timeShift": null,
+               "title": "Router cache last cleared",
+               "tooltip": {
+                  "shared": true,
+                  "sort": 2,
+                  "value_type": "individual"
+               },
+               "type": "graph",
+               "xaxis": {
+                  "buckets": null,
+                  "mode": "time",
+                  "name": null,
+                  "show": true,
+                  "values": [ ]
+               },
+               "yaxes": [
+                  {
+                     "format": "dateTimeFromNow",
+                     "label": null,
+                     "logBase": 1,
+                     "max": null,
+                     "min": null,
+                     "show": true
+                  },
+                  {
+                     "format": "dateTimeFromNow",
+                     "label": null,
+                     "logBase": 1,
+                     "max": null,
+                     "min": null,
+                     "show": true
+                  }
+               ]
+            },
+            {
+               "aliasColors": { },
+               "bars": false,
+               "dashLength": 10,
+               "dashes": false,
+               "datasource": "$prometheus",
                "description": "Total count of success SELECT and PAIRS requests to cluster spaces with CRUD module.\nGraph shows average requests per second.\n\nCRUD 0.11.0 or newer is required to use statistics.\nEnable statistics with `crud.cfg{stats = true, stats_driver = 'metrics'}`\n",
                "fill": 0,
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 12,
                   "y": 440
                },
-               "id": 179,
+               "id": 180,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -14824,10 +14911,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
+                  "x": 18,
                   "y": 440
                },
-               "id": 180,
+               "id": 181,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -14911,10 +14998,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 440
+                  "x": 0,
+                  "y": 448
                },
-               "id": 181,
+               "id": 182,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -14998,10 +15085,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 440
+                  "x": 6,
+                  "y": 448
                },
-               "id": 182,
+               "id": 183,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15085,10 +15172,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 8,
-                  "x": 0,
+                  "x": 12,
                   "y": 448
                },
-               "id": 183,
+               "id": 184,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15172,10 +15259,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 8,
-                  "x": 8,
-                  "y": 448
+                  "x": 0,
+                  "y": 456
                },
-               "id": 184,
+               "id": 185,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15259,10 +15346,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 8,
-                  "x": 16,
-                  "y": 448
+                  "x": 8,
+                  "y": 456
                },
-               "id": 185,
+               "id": 186,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15346,10 +15433,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 16,
                   "y": 456
                },
-               "id": 186,
+               "id": 187,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15433,10 +15520,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 456
+                  "x": 0,
+                  "y": 464
                },
-               "id": 187,
+               "id": 188,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15520,10 +15607,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 456
+                  "x": 6,
+                  "y": 464
                },
-               "id": 188,
+               "id": 189,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15607,10 +15694,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 456
+                  "x": 12,
+                  "y": 464
                },
-               "id": 189,
+               "id": 190,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15694,10 +15781,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 464
                },
-               "id": 190,
+               "id": 191,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15781,10 +15868,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 464
+                  "x": 0,
+                  "y": 472
                },
-               "id": 191,
+               "id": 192,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15868,10 +15955,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 464
+                  "x": 6,
+                  "y": 472
                },
-               "id": 192,
+               "id": 193,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -15955,10 +16042,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 464
+                  "x": 12,
+                  "y": 472
                },
-               "id": 193,
+               "id": 194,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16042,10 +16129,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 472
                },
-               "id": 194,
+               "id": 195,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16129,10 +16216,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 472
+                  "x": 0,
+                  "y": 480
                },
-               "id": 195,
+               "id": 196,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16216,10 +16303,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 472
+                  "x": 6,
+                  "y": 480
                },
-               "id": 196,
+               "id": 197,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16303,10 +16390,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 472
+                  "x": 12,
+                  "y": 480
                },
-               "id": 197,
+               "id": 198,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16390,10 +16477,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 480
                },
-               "id": 198,
+               "id": 199,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16477,10 +16564,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 480
+                  "x": 0,
+                  "y": 488
                },
-               "id": 199,
+               "id": 200,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16564,10 +16651,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 480
+                  "x": 6,
+                  "y": 488
                },
-               "id": 200,
+               "id": 201,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16651,10 +16738,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 480
+                  "x": 12,
+                  "y": 488
                },
-               "id": 201,
+               "id": 202,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16738,10 +16825,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 488
                },
-               "id": 202,
+               "id": 203,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16825,10 +16912,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 488
+                  "x": 0,
+                  "y": 496
                },
-               "id": 203,
+               "id": 204,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16912,10 +16999,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 488
+                  "x": 6,
+                  "y": 496
                },
-               "id": 204,
+               "id": 205,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -16999,10 +17086,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 488
+                  "x": 12,
+                  "y": 496
                },
-               "id": 205,
+               "id": 206,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17086,10 +17173,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 496
                },
-               "id": 206,
+               "id": 207,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17173,10 +17260,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 496
+                  "x": 0,
+                  "y": 504
                },
-               "id": 207,
+               "id": 208,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17260,10 +17347,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 496
+                  "x": 6,
+                  "y": 504
                },
-               "id": 208,
+               "id": 209,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17347,10 +17434,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 496
+                  "x": 12,
+                  "y": 504
                },
-               "id": 209,
+               "id": 210,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17434,10 +17521,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 504
                },
-               "id": 210,
+               "id": 211,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17521,10 +17608,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 504
+                  "x": 0,
+                  "y": 512
                },
-               "id": 211,
+               "id": 212,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17608,10 +17695,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 504
+                  "x": 6,
+                  "y": 512
                },
-               "id": 212,
+               "id": 213,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17695,10 +17782,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 504
+                  "x": 12,
+                  "y": 512
                },
-               "id": 213,
+               "id": 214,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17782,10 +17869,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 512
                },
-               "id": 214,
+               "id": 215,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17869,10 +17956,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 512
+                  "x": 0,
+                  "y": 520
                },
-               "id": 215,
+               "id": 216,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -17956,10 +18043,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 512
+                  "x": 6,
+                  "y": 520
                },
-               "id": 216,
+               "id": 217,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18043,10 +18130,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 512
+                  "x": 12,
+                  "y": 520
                },
-               "id": 217,
+               "id": 218,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18130,10 +18217,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 520
                },
-               "id": 218,
+               "id": 219,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18217,10 +18304,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 520
+                  "x": 0,
+                  "y": 528
                },
-               "id": 219,
+               "id": 220,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18304,10 +18391,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 520
+                  "x": 6,
+                  "y": 528
                },
-               "id": 220,
+               "id": 221,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18391,10 +18478,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 520
+                  "x": 12,
+                  "y": 528
                },
-               "id": 221,
+               "id": 222,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18478,10 +18565,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 528
                },
-               "id": 222,
+               "id": 223,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18565,10 +18652,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 528
+                  "x": 0,
+                  "y": 536
                },
-               "id": 223,
+               "id": 224,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18652,10 +18739,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 528
+                  "x": 6,
+                  "y": 536
                },
-               "id": 224,
+               "id": 225,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18739,10 +18826,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 528
+                  "x": 12,
+                  "y": 536
                },
-               "id": 225,
+               "id": 226,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18826,10 +18913,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 536
                },
-               "id": 226,
+               "id": 227,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -18913,10 +19000,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 536
+                  "x": 0,
+                  "y": 544
                },
-               "id": 227,
+               "id": 228,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19000,10 +19087,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 536
+                  "x": 6,
+                  "y": 544
                },
-               "id": 228,
+               "id": 229,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19087,10 +19174,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 536
+                  "x": 12,
+                  "y": 544
                },
-               "id": 229,
+               "id": 230,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19174,10 +19261,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 544
                },
-               "id": 230,
+               "id": 231,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19261,10 +19348,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 544
+                  "x": 0,
+                  "y": 552
                },
-               "id": 231,
+               "id": 232,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19348,10 +19435,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 544
+                  "x": 6,
+                  "y": 552
                },
-               "id": 232,
+               "id": 233,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19435,10 +19522,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 544
+                  "x": 12,
+                  "y": 552
                },
-               "id": 233,
+               "id": 234,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19522,10 +19609,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 0,
+                  "x": 18,
                   "y": 552
                },
-               "id": 234,
+               "id": 235,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19609,10 +19696,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 6,
-                  "y": 552
+                  "x": 0,
+                  "y": 560
                },
-               "id": 235,
+               "id": 236,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19696,10 +19783,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 12,
-                  "y": 552
+                  "x": 6,
+                  "y": 560
                },
-               "id": 236,
+               "id": 237,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19783,10 +19870,10 @@
                "gridPos": {
                   "h": 8,
                   "w": 6,
-                  "x": 18,
-                  "y": 552
+                  "x": 12,
+                  "y": 560
                },
-               "id": 237,
+               "id": 238,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19875,9 +19962,9 @@
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 560
+            "y": 568
          },
-         "id": 238,
+         "id": 239,
          "panels": [
             {
                "aliasColors": { },
@@ -19891,9 +19978,9 @@
                   "h": 8,
                   "w": 12,
                   "x": 0,
-                  "y": 561
+                  "y": 569
                },
-               "id": 239,
+               "id": 240,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -19978,9 +20065,9 @@
                   "h": 8,
                   "w": 12,
                   "x": 12,
-                  "y": 561
+                  "y": 569
                },
-               "id": 240,
+               "id": 241,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -20066,9 +20153,9 @@
                   "h": 8,
                   "w": 12,
                   "x": 0,
-                  "y": 569
+                  "y": 577
                },
-               "id": 241,
+               "id": 242,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
@@ -20155,9 +20242,9 @@
                   "h": 8,
                   "w": 12,
                   "x": 12,
-                  "y": 569
+                  "y": 577
                },
-               "id": 242,
+               "id": 243,
                "legend": {
                   "alignAsTable": true,
                   "avg": true,
